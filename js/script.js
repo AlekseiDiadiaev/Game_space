@@ -214,6 +214,15 @@ document.addEventListener('keydown', (e) => {
         countBoom++;
         const top = Math.random() * 2000-1500;
         const left = Math.random() * 2000 - 1000;
+        let speedLeft = 2;
+        let speedTop = 2;
+        for (let i = 10; i <  Math.abs(left/2);i = i + 10){
+            speedLeft = speedLeft + 0.04;
+        }
+        for (let i = 10; i <  Math.abs(top/2);i = i + 10){
+            speedTop = speedTop + 0.04;
+        }
+        const speed = (speedTop + speedLeft) / 2;
         /*  styleBoom.innerHTML = `:root {
             --topRandom: ${top}px;
             --leftRandom: ${left}px;
@@ -233,17 +242,17 @@ document.addEventListener('keydown', (e) => {
             to {
               top: ${top}px;
               left: ${left}px;
-              width: 10px;
-              height: 10px;
+              width: 1px;
+              height: 1px;
             }
           }
           .piece${countBoom} {
-            animation: boom${countBoom} 4s ease-out 1;
+            animation: boom${countBoom} ${speed}s ease-out 1;
           }
           </style>`; 
         setTimeout(() => {
             boomObserve.remove();
-        }, 4000); 
+        }, (speed * 1000 - 100)); 
     }
 });
 
