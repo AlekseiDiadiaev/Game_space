@@ -1,0 +1,189 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  background: url(../img/space.jpg) center center/cover no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  transition: 1s all;
+}
+
+@keyframes boom{
+  from {
+    top: 0px;
+    left: 0px;
+  }
+  to {
+    top: var(--topRandom);
+    left: var(--leftRandom);
+  }
+}
+
+@keyframes blockDown{
+  from{
+    top: -20%;
+  }
+  to{
+    top: 110%;
+  }
+}
+
+@keyframes puls {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes fire{
+  from{
+    top: -10%;
+  }
+  to{
+    top: 400%;
+  }
+}
+@keyframes rotate{
+  from{
+    transform: rotateZ(0deg);
+  }
+  to{
+    transform: rotateZ(360deg);
+  }
+}
+.field {
+  position: relative;
+  margin: 0 auto;
+  height: 100vh;
+  width: 800px;
+  height: 900px;
+  background: rgba (0, 0, 0, 0);
+  /* background: linear-gradient(33deg, rgb(136, 123, 194),rgb(123, 194, 167)); */
+  /* overflow: hidden; */
+}
+
+.block {
+  position: absolute;
+  background-color: rgb(131, 4, 67);
+  /* border: 1px solid #000; */
+  background: url(../img/aster.png) center center/135% 135% no-repeat;
+  height: 100px;
+  width: 100px;
+  top: -20%;
+  border-radius: 100%;
+  animation: blockDown 3s linear 1, 
+              puls 2s linear infinite,
+              rotate 10s linear infinite; 
+  /* animation-name: blockDown;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1; */
+  z-index: 2;
+   
+}
+.ship {
+    position: absolute;
+    /* background-color: rgb(29, 55, 170); */
+    background: rgba (0, 0, 0, 0);
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    bottom: 20px;
+    /* overflow: hidden; */
+    z-index: 2;
+    
+    animation-name: puls;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;   
+}
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 100%;
+  animation-name: blockDown;
+  animation-duration: 0.6s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  top: -20%;
+  z-index: 2;
+}
+.ship__img{
+  width: 140%;
+  height: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.planet {
+  width: 1000px;
+  position: absolute;
+  top: -20%;
+  left: -400px;
+  background: rgba (0, 0, 0, 0);
+  animation-name: blockDown;
+  animation-duration: 800s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  transition: 0.5s all;
+  z-index: 1;
+}
+.planet__img {
+  width: 100%;
+  
+}
+.fire_box{
+  position: relative;
+  height: 40px;
+  z-index: 50;
+  visibility: visible;
+}
+.fire {
+  width: 2px;
+  height: 5px;
+  border-radius: 100%;
+  background: rgb(223, 150, 15);
+  position: absolute;
+  
+
+  animation-name: fire;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  /* border: 0.5px solid rgb(216, 8, 8); */
+}
+
+.firered {
+  width: 4px;
+  height: 6px;
+  border-radius: 100%;
+  background: rgb(143, 15, 15);
+  position: absolute;
+  
+
+  animation-name: fire;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  /* border: 0.5px solid rgb(216, 8, 8); */
+}
+
+.piece {
+  background: url(../img/piece.png) center center/100% 100% no-repeat;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  visibility: visible;
+  position: absolute;
+
+  /* animation: boom 1s linear 1; */
+}
