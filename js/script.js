@@ -1,4 +1,5 @@
-const field = document.querySelector('.field'),
+window.addEventListener('DOMContentLoaded', () => {
+    const field = document.querySelector('.field'),
       ship = document.querySelector('.ship'),
       body = document.querySelector('body'),
       fireBox = document.querySelector('.fire_box'),
@@ -118,13 +119,9 @@ function intervalFire() {
     setTimeout(appendFire, Math.random()*1);
 }
 let fire1 = setInterval(intervalFire, 1);
-function intervalFire() {
-    setTimeout(appendFire, Math.random()*1);
-}
+
 let fire2 = setInterval(intervalFire, 1);
-function intervalFire() {
-    setTimeout(appendFire, Math.random()*1);
-}
+
 let fire3 = setInterval(intervalFire, 1);
 
 // запуск звезд
@@ -248,6 +245,8 @@ document.addEventListener('keydown', (e) => {
             boomObserve.remove();
         }, 4000); 
     }
+});
+
 
 
 
